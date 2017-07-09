@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddevico <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: qviguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 12:12:51 by ddevico           #+#    #+#             */
-/*   Updated: 2015/12/14 12:13:45 by ddevico          ###   ########.fr       */
+/*   Created: 2015/12/11 16:50:57 by qviguier          #+#    #+#             */
+/*   Updated: 2016/01/04 13:32:46 by qviguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
+#include "fillit.h"
 
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <assert.h>
-# include <unistd.h>
+int		setminsize(t_list *lst)
+{
+	int i;
+	int j;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	j = 0;
+	while (lst != 0)
+	{
+		lst = lst->next;
+		i++;
+	}
+	while (i * 4 > j * j)
+		j++;
+	return (j);
+}

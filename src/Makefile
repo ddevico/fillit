@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, norminette
 
 SRC_PATH = src
 SRC_NAME = centering.c checkinput.c ft_lstdup.c ft_realloc.c ft_validate.c \
@@ -37,7 +37,7 @@ LIB = $(addprefix $(LIB_PATH)/,$(LIB_NAME))
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME)
+$(NAME): norminette $(OBJ_NAME)
 	@echo LINKING FILLIT FROM OBJECTS FILES...
 	@$(CC) $(LDFLAGS) $(OBJ) -o $@ $(LIB)
 	@echo SUCCESS !
@@ -58,3 +58,8 @@ fclean: clean
 	@echo EXECUTABLE DELETED !
 
 re: fclean all
+
+norminette:
+	@echo --------------------------------------------------------------------
+	@norminette $(SRC)
+	@echo --------------------------------------------------------------------
