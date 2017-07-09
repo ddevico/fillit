@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all, clean, fclean, re, norminette
+.PHONY: all, clean, fclean, re
 
 SRC_PATH = src
 SRC_NAME = 	filler.c get_next_line.c ft_util.c ft_readmap.c ft_resolve.c \
@@ -37,7 +37,7 @@ LIB = $(addprefix $(LIB_PATH)/,$(LIB_NAME))
 
 all: $(NAME)
 
-$(NAME): norminette $(OBJ_NAME)
+$(NAME): $(OBJ_NAME)
 	@echo LINKING FILLER FROM OBJECTS FILES...
 	@$(CC) $(LDFLAGS) $(OBJ) -o $@ $(LIB)
 	@echo SUCCESS !
@@ -58,8 +58,3 @@ fclean: clean
 	@echo EXECUTABLE DELETED !
 
 re: fclean all
-
-norminette:
-	@echo --------------------------------------------------------------------
-	@norminette $(SRC)
-	@echo --------------------------------------------------------------------
