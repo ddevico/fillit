@@ -12,3 +12,8 @@ four lines per figure; all fiures separated by one newline. The disposition with
 as such that it returns the first possible solution when placing them recursively from the top left.
 
 The program uses an array of strings to contain all the set of Tetriminos and does not use recursion to solve the map.
+
+## Start the program
+
+- ```Make```
+- ```./fillit map/*.map```
